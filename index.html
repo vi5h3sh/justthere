@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>One Step Closer 💖</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #fff0f5, #ffe4ec);
+      font-family: 'Outfit', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      overflow: hidden;
+    }
+    .container {
+      background: white;
+      padding: 2rem 3rem;
+      border-radius: 1.5rem;
+      box-shadow: 0 0 25px rgba(255, 105, 180, 0.15);
+      text-align: center;
+      position: relative;
+      max-width: 400px;
+      width: 90%;
+    }
+    input {
+      padding: 0.6rem;
+      border-radius: 1rem;
+      border: 1px solid #ccc;
+      width: 70%;
+      margin-bottom: 1rem;
+    }
+    button, .heart {
+      padding: 0.6rem 1.5rem;
+      border: none;
+      border-radius: 999px;
+      background: #ff6ba2;
+      color: white;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 1rem;
+    }
+    button:hover {
+      background: #ff4d91;
+    }
+    .error {
+      color: red;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+    .heart {
+      position: absolute;
+      font-size: 2rem;
+      background: none;
+      border: none;
+      animation: moveAround 5s infinite linear;
+    }
+    @keyframes moveAround {
+      0%   { top: 20%; left: 10%; }
+      25%  { top: 30%; left: 80%; }
+      50%  { top: 60%; left: 50%; }
+      75%  { top: 80%; left: 20%; }
+      100% { top: 20%; left: 10%; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h2>Almost there, Novs... 💫</h2>
+    <p>Step 1: Catch the heart 💖</p>
+    <button class="heart" onclick="stepOneComplete()">💖</button>
+
+    <div id="step2" style="display:none; margin-top: 2rem;">
+      <p>Step 2: Enter the PIN to unlock your surprise 🥺</p>
+      <input type="text" id="secret" placeholder="Enter the PIN..." />
+      <br>
+      <button onclick="checkPass()">Unlock</button>
+      <div class="error" id="errorMsg"></div>
+      <p style="font-size: 0.85rem; margin-top: 0.5rem; color: #777;">Hint: I already told you this PIN earlier 😉</p>
+    </div>
+  </div>
+
+  <script>
+    const correctPassword = "0105"; // updated PIN
+    const finalLink = "https://vi5h3sh.github.io/100daysinlovewithyou/"; // replace with your real link
+
+    function stepOneComplete() {
+      document.querySelector('.heart').style.display = 'none';
+      document.getElementById('step2').style.display = 'block';
+    }
+
+    function checkPass() {
+      const input = document.getElementById('secret').value.toLowerCase();
+      if (input === correctPassword) {
+        window.location.href = finalLink;
+      } else {
+        document.getElementById('errorMsg').innerText = "Nope. Try again 🤭";
+      }
+    }
+  </script>
+</body>
+</html>
+
+
